@@ -1,13 +1,13 @@
 import { useContext } from 'react';
-import { UserContext } from './UserContext.js';
+import { UserContext } from '../context/UserContext.js';
+import { authUser } from '../services/auth.js';
 
-const useUser = () => {
-  const data = useContext(UserContext);
+export function useUser() {
+  const { user, setUser, loading, error, setError } = useContext(UserContext);
 
-  if (!data) {
-    throw new Error('useUser must be wrapped in a UserProvider');
-  }
-  return data;
-};
-
-export { useUser };
+  const logInUser = async (email, password, type) => {
+    const user = await authUser(email, password, type);
+    setUser(user);
+  };
+  return { user, setUser, error, setError, logInUser, loading };
+}
