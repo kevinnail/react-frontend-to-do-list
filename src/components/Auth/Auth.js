@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.js';
+import { getUser, signInUser } from '../../services/fetch-utils.js';
 import './Auth.css';
-// import { login, getUser } from '../../services/auth.js';
-import { signInUser, getUser } from '../../services/fetch-utils.js';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { user, setUser } = useUser();
+  const { user, logInUser } = useUser();
+
   const submitAuth = async () => {
     try {
       const response = await signInUser(email, password);
       if (response.ok) {
         const user = await getUser();
-        setUser(user);
+        logInUser(user);
       }
     } catch (e) {
       console.error(e);
