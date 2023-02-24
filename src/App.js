@@ -17,7 +17,6 @@ function App() {
           <Redirect to="/auth/sign-in" />
         </Route>
       </Switch>
-      <h1>Hello from App.js</h1>
     </div>
   );
 }
