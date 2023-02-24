@@ -1,5 +1,6 @@
 // const BASE_URL = 'https://to-do-list-kn.herokuapp.com';
 const BASE_URL = 'http://localhost:7890';
+
 /* Auth related functions */
 
 export async function getUser() {
@@ -30,7 +31,8 @@ export async function signUpUser(email, password) {
   });
   const data = await resp.json();
   if (resp.ok) {
-    location.replace('./');
+    location.replace('/');
+    return resp;
   } else {
     // eslint-disable-next-line no-console
     console.error(data.message);
@@ -51,7 +53,10 @@ export async function signInUser(email, password) {
   const data = await resp.json();
 
   if (resp.ok) {
-    location.replace('/');
+    location.replace('/posts');
+    // history.push('/posts', { from: 'auth' });
+
+    return resp;
   } else {
     // eslint-disable-next-line no-console
     console.error(data.message);
