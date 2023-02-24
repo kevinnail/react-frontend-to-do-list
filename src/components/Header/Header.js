@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
+import { useUser } from '../../hooks/useUser.js';
 import { signOut } from '../../services/auth.js';
 import './Header.css';
 
@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header>
       <img className="icon" src="../bulletin-board-icon.png" />
-      <h1>Bulletin Board</h1>
+      <h1>To Do List</h1>
       {user && (
         <div className="header-section">
           <p>
