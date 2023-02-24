@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 // import { authUser } from '../services/auth.js';
 import { getUser } from '../services/fetch-utils.js';
 
@@ -23,26 +23,24 @@ const UserProvider = ({ children }) => {
     fetchUser();
   }, []);
 
-  const logInUser = (user) => {
-    setUser(user);
-  };
+  // const logInUser = (user) => {
+  //   setUser(user);
+  // };
 
   return (
-    <UserContext.Provider
-      value={{ user, setUser, error, setError, loading, setLoading, logInUser }}
-    >
+    <UserContext.Provider value={{ user, setUser, error, setError, loading, setLoading }}>
       {children}
     </UserContext.Provider>
   );
 };
 
-const useUser = () => {
-  const data = useContext(UserContext);
+// const useUser = () => {
+//   const data = useContext(UserContext);
 
-  if (!data) {
-    throw new Error('useUser must be wrapped in a UserProvider');
-  }
-  return data;
-};
+//   if (!data) {
+//     throw new Error('useUser must be wrapped in a UserProvider');
+//   }
+//   return data;
+// };
 
-export { UserProvider, useUser };
+export { UserProvider, UserContext };
