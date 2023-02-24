@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { authUser } from '../services/auth.js';
+// import { authUser } from '../services/auth.js';
 import { getUser } from '../services/fetch-utils.js';
 
 const UserContext = createContext();
