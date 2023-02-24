@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
-import { useUser } from '../../context/UserContext.js';
-import { getUser, signInUser, signUpUser } from '../../services/fetch-utils.js';
+import { NavLink, Redirect, useParams } from 'react-router-dom';
+import { useUser } from '../../hooks/useUser.js';
+
 import './Auth.css';
 
 export default function Auth() {
@@ -9,28 +9,44 @@ export default function Auth() {
   const [password, setPassword] = useState('');
   const [isSignIn, setIsSignIn] = useState(true);
   const { user, logInUser } = useUser();
+  const { type } = useParams();
+
+  if (user) {
+    return <Redirect to="/posts" />;
+  }
 
   const submitAuth = async () => {
     try {
-      let response;
-      if (isSignIn) {
-        response = await signInUser(email, password);
-      } else {
-        response = await signUpUser(email, password);
-      }
-
-      if (response.ok) {
-        const user = await getUser();
-        logInUser(user);
-      }
+      await logInUser(email, password, type);
     } catch (e) {
       console.error(e);
     }
   };
 
-  if (user) {
-    return <Redirect to="/posts" />;
-  }
+  // try {
+  // let response;
+  // console.log('isSignIn in Auth.js', isSignIn);
+
+  // if (isSignIn) {
+  //   response = await signInUser(email, password);
+  // } else {
+  //   response = await signUpUser(email, password);
+  // }
+
+  // if (response.ok) {
+  //   const user = await getUser();
+
+  // console.log('response.ok: user in getUser in Auth.js', user);
+  // logInUser(user);
+  // console.log('response.ok: user in getUser in Auth.js', user);
+
+  // history.push('/posts', { from: 'auth' });
+  //   }
+  // } catch (e) {
+  //   console.error(e);
+  // }
+  // };
+  // console.log('page reloads on Auth.js');
 
   return (
     <div className="auth-container">
@@ -60,7 +76,6 @@ export default function Auth() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-
       <div>
         <button onClick={submitAuth}>{isSignIn ? 'Sign In' : 'Sign Up'}</button>
       </div>
