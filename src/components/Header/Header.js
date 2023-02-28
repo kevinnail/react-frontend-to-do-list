@@ -20,7 +20,7 @@ export default function Header() {
           <p>
             EMAIL FOR SALE: <span> {user.email}</span> <br />
           </p>
-          <Link to="/posts/new">New Post</Link>
+          <Link to="/todos/new">New Post</Link>
           <button onClick={handleClick}>Sign Out</button>
         </div>
       )}
