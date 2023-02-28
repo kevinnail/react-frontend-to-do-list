@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/UserContext.js';
 import { BrowserRouter } from 'react-router-dom';
+// import { StrictMode } from 'react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
