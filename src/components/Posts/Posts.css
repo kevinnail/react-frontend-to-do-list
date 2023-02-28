@@ -1,0 +1,31 @@
+.post {
+  background-image: linear-gradient(rgb(68, 0, 255), #000);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px auto;
+  border: 2px solid #ffffff;
+  width: 80%;
+  align-self: center;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px 0 #000000;
+}
+
+.post h1 {
+  font-weight: 600;
+  color: #ffffff;
+  align-items: flex-start;
+}
+
+.post p {
+  align-self: center;
+  width: 80%;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
