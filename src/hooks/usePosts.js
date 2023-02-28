@@ -11,10 +11,7 @@ export function usePosts() {
     const fetchData = async () => {
       try {
         const data = await fetchTodos();
-
         setPosts(data);
-        console.log('usePosts posts', posts);
-
         setLoading(false);
       } catch (e) {
         setError(e.message);
