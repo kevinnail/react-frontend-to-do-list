@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/auth/:type" component={Auth} />
-        <Route path="/posts" component={Posts} />
+        <Route path="/todos" component={Posts} />
         <Route exact path="*">
           <Redirect to="/auth/sign-in" />
         </Route>
