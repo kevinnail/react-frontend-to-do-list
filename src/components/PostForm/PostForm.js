@@ -1,35 +1,24 @@
 import { useState } from 'react';
 import './PostForm.css';
 
-export default function PostForm({ title = '', description = ' ', submitHandler }) {
-  const [titleInput, setTitleInput] = useState(title);
-  const [descriptionInput, setDescriptionInput] = useState(description);
+export default function PostForm({ task = ' ', submitHandler }) {
+  const [taskInput, setTaskInput] = useState(task);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    submitHandler(titleInput, descriptionInput);
+    submitHandler(taskInput);
   };
 
   return (
     <form className="new-post-form" onSubmit={handleFormSubmit}>
       <div>
-        <label className="form-title">Title</label>
-        <input
-          className="title-input"
-          type="text"
-          name="title"
-          value={titleInput}
-          onChange={(e) => setTitleInput(e.target.value)}
-        />
-      </div>
-      <div>
-        <label className="form-title">Description</label>
+        <label className="form-title">What is your task?</label>
         <textarea
           className="description-input"
           type="text"
-          name="description"
-          value={descriptionInput}
-          onChange={(e) => setDescriptionInput(e.target.value)}
+          name="task"
+          value={taskInput}
+          onChange={(e) => setTaskInput(e.target.value)}
         />
       </div>
       <div>
