@@ -1,5 +1,5 @@
 // const BASE_URL = 'https://to-do-list-kn.herokuapp.com';
-const BASE_URL = 'http://localhost:7890';
+const BASE_URL = 'http://localhost:11111';
 
 /* Auth related functions */
 
