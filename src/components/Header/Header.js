@@ -17,7 +17,7 @@ export default function Header() {
         <img className="icon" src="../bulletin-board-icon.png" />
       </a> */}
 
-      <Link to="/todos">
+      <Link className="link" to="/todos">
         <img className="icon" src="../bulletin-board-icon.png" />
       </Link>
       <h1 className="title">To Do List</h1>
@@ -26,7 +26,9 @@ export default function Header() {
           <p>
             EMAIL FOR SALE: <span> {user.email}</span> <br />
           </p>
-          <Link to="/todos/new">New Post</Link>
+          <Link className="link" to="/todos/new">
+            New Post
+          </Link>
           <button onClick={handleClick}>Sign Out</button>
         </div>
       )}

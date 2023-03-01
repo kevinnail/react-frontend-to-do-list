@@ -29,7 +29,7 @@ a {
 }
 
 button,
-a {
+.link {
   background: rgb(68, 0, 255);
   color: #b9b9b9;
   border: none;
@@ -47,7 +47,7 @@ a {
 }
 
 button:hover,
-a:hover {
+.link:hover {
   background-color: #000;
   color: #fff;
   border: 1px solid rgb(68, 0, 255);
