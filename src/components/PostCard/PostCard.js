@@ -5,13 +5,9 @@ import './PostCard.css';
 
 export default function PostCard({ task, id }) {
   const { user } = useUser();
-  const { loading, error } = usePosts();
+  const { error } = usePosts();
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
   }
 
   if (error) {
