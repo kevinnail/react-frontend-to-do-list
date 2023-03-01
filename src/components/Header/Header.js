@@ -13,8 +13,10 @@ export default function Header() {
 
   return (
     <header>
-      <img className="icon" src="../bulletin-board-icon.png" />
-      <h1>To Do List</h1>
+      <a href="/todos">
+        <img className="icon" src="../bulletin-board-icon.png" />
+      </a>
+      <h1 className="title">To Do List</h1>
       {user && (
         <div className="header-section">
           <p>
