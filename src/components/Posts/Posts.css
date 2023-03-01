@@ -30,17 +30,6 @@
   flex-basis: 80%;
 }
 
-.post h1 {
-  font-weight: 600;
-  color: #ffffff;
-  align-items: flex-start;
-}
-
-.post p {
-  align-self: center;
-  width: 80%;
-}
-
 .list-container {
   display: grid;
   grid-template-columns: 1fr;
