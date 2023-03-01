@@ -13,8 +13,16 @@ export default function PostCard({ task, id }) {
   if (error) {
     return <div>Error: {error}</div>;
   }
+
   return (
-    <div className="post" key={id}>
+    <div className="post overlay" key={id}>
+      <div>
+        <img src="/edit.png" alt="edit" />
+      </div>
+      <div>
+        {' '}
+        <img src="/delete.png" alt="edit" />
+      </div>
       <h1>{task}</h1>
     </div>
   );

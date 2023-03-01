@@ -16,7 +16,7 @@ export default function Posts() {
   if (loading) {
     return (
       <div className="loading">
-        <h1>I am seriously loaded! I mean loading!</h1>
+        <h1>I am seriously loaded! I mean loading! One moment please!</h1>
       </div>
     );
   }
