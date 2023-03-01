@@ -29,3 +29,13 @@
   font-size: 1.5rem;
   border: 1px solid rgb(0, 0, 0);
 }
+
+.buttons:hover {
+  cursor: pointer;
+  transform: scale(1.1) translateY(-5px);
+  transition: 250ms;
+}
+.todo:hover {
+  box-shadow: 0 0 15px 0 rgb(0, 21, 255);
+  cursor: pointer;
+}
