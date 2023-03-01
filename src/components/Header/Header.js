@@ -13,9 +13,13 @@ export default function Header() {
 
   return (
     <header>
-      <a href="/todos">
+      {/* <a href="/todos">
         <img className="icon" src="../bulletin-board-icon.png" />
-      </a>
+      </a> */}
+
+      <Link to="/todos">
+        <img className="icon" src="../bulletin-board-icon.png" />
+      </Link>
       <h1 className="title">To Do List</h1>
       {user && (
         <div className="header-section">
