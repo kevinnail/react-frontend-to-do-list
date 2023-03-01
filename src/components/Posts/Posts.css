@@ -29,3 +29,19 @@
   grid-template-columns: 1fr;
   grid-gap: 20px;
 }
+
+.loading {
+  background-color: #3498db;
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+  border: 16px solid #ff0000;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading h1 {
+  width: 75%;
+}

@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { usePosts } from '../../hooks/usePosts.js';
 import { useUser } from '../../hooks/useUser.js';
 import PostCard from '../PostCard/PostCard.js';
+import './Posts.css';
 
 export default function Posts() {
   const { user } = useUser();
@@ -11,12 +12,11 @@ export default function Posts() {
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
-  console.log('loading: ', loading);
 
   if (loading) {
     return (
-      <div>
-        <h1>Loading...</h1>
+      <div className="loading">
+        <h1>I am seriously loaded! I mean loading!</h1>
       </div>
     );
   }
