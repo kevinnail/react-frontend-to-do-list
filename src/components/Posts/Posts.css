@@ -31,11 +31,11 @@
 }
 
 .loading {
-  background-color: #3498db;
+  background-color: #545454;
   height: 400px;
   width: 400px;
   margin: 0 auto;
-  border: 16px solid #ff0000;
+  border: 4px solid #4a4a4a;
   border-radius: 50%;
 
   display: flex;

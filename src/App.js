@@ -6,10 +6,21 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header.js';
 import Posts from './components/Posts/Posts.js';
 import NewPost from './components/NewPost/NewPost.js';
+import background from './background.jpg';
 
 function App() {
   return (
-    <div className="App">
+    <div
+      className="App"
+      // style={{
+      //   backgroundImage: `url(${background})`,
+      //   backgroundSize: 'contain',
+      //   backgroundPosition: 'center',
+      //   backgroundRepeat: 'no-repeat',
+      //   height: '100vh',
+      //   width: '100%',
+      // }}
+    >
       <Header />
       <Switch>
         <Route path="/auth/:type" component={Auth} />
