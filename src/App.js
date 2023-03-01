@@ -6,7 +6,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header.js';
 import Posts from './components/Posts/Posts.js';
 import NewPost from './components/NewPost/NewPost.js';
-import background from './background.jpg';
+import EditPost from './components/EditPost/EditPost.js';
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/auth/:type" component={Auth} />
+        <Route path="/todos/edit/:id" component={EditPost} />
         <Route path="/todos/new" component={NewPost} />
         <Route path="/todos" component={Posts} />
         <Route exact path="*">
