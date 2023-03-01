@@ -14,7 +14,7 @@ export default function PostForm({ task = ' ', submitHandler }) {
       <div>
         <label className="form-title">What is your task?</label>
         <textarea
-          className="description-input"
+          className="task-input"
           type="text"
           name="task"
           value={taskInput}
