@@ -51,10 +51,10 @@ export default function Auth() {
   return (
     <div className="auth-container">
       <div className="sign-in-sign-out">
-        <NavLink to="/auth/sign-in" onClick={() => setIsSignIn(true)}>
+        <NavLink className="link" to="/auth/sign-in" onClick={() => setIsSignIn(true)}>
           Sign-in
         </NavLink>
-        <NavLink to="/auth/sign-up" onClick={() => setIsSignIn(false)}>
+        <NavLink className="link" to="/auth/sign-up" onClick={() => setIsSignIn(false)}>
           Sign-up
         </NavLink>
       </div>
