@@ -9,12 +9,14 @@ export default function EditPost() {
   const history = useHistory();
   const { postDetail, loading, setLoading, error, setError } = usePost(id);
   const { user } = useUser();
+  console.log('EditPost');
 
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>{error}</h1>;
+  console.log('postDetail', postDetail);
 
   const handleSubmit = async (task) => {
     setLoading(true);

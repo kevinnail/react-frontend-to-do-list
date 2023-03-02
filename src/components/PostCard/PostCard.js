@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import { usePosts } from '../../hooks/usePosts.js';
 import { useUser } from '../../hooks/useUser.js';
+import EditPost from '../EditPost/EditPost.js';
 import './PostCard.css';
 
 export default function PostCard({ task, id }) {
   const { user } = useUser();
   const { error } = usePosts();
   const [finished, setFinished] = useState(false);
-
+  const history = useHistory();
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
@@ -17,14 +18,16 @@ export default function PostCard({ task, id }) {
     return <div>Error: {error}</div>;
   }
   const handleClick = (e) => {
-    if (e.target.name === 'edit') {
-      console.log('edit');
-    } else if (e.target.name === 'delete') {
-      console.log('delete');
+    console.log('id', id); // working
+
+    history.push(`/posts/edit/${id}`);
+
+    if (e.target.name === 'delete') {
+      //
     } else {
-      console.log('finished before setter', finished);
+      //
       setFinished((prevFinished) => {
-        console.log('finished after setter', !prevFinished);
+        //
         return !prevFinished;
       });
     }
@@ -32,12 +35,17 @@ export default function PostCard({ task, id }) {
 
   return (
     <div className="post overlay" key={id}>
+      <Link onClick={handleClick} className="buttons" to={`/posts/edit/${id}`}>
+        <img src="/edit.png" className="edit-button" alt="edit" />
+      </Link>
       <div>
-        <img className="buttons" onClick={handleClick} name="edit" src="/edit.png" alt="edit" />
-      </div>
-      <div>
-        {' '}
-        <img className="buttons" onClick={handleClick} src="/delete.png" name="delete" alt="edit" />
+        <img
+          className="buttons"
+          onClick={handleClick}
+          src="/delete.png"
+          name="delete"
+          alt="delete"
+        />
       </div>
       <h1 className="todo" onClick={handleClick} name="finished">
         {task}
