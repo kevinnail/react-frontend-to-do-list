@@ -23,7 +23,7 @@ export default function Posts() {
   return (
     <div className="list-container">
       {posts.map((post) => (
-        <PostCard key={post.id} {...post} />
+        <PostCard key={post.id} {...post} task={post.task} />
       ))}
     </div>
   );

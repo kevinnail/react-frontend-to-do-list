@@ -1,15 +1,22 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+// import { Link, Redirect, useHistory, useParams } from 'react-router-dom';
 import { Link, Redirect, useHistory } from 'react-router-dom';
+import { usePost } from '../../hooks/usePost.js';
 import { usePosts } from '../../hooks/usePosts.js';
 import { useUser } from '../../hooks/useUser.js';
-import EditPost from '../EditPost/EditPost.js';
+// import EditPost from '../EditPost/EditPost.js';
 import './PostCard.css';
-
+// import { useLocation } from 'react-router-dom';
 export default function PostCard({ task, id }) {
+  // const location = useLocation();
+  // const id = location.pathname.split('/').pop();
   const { user } = useUser();
   const { error } = usePosts();
-  const [finished, setFinished] = useState(false);
+  // const [finished, setFinished] = useState(false);
   const history = useHistory();
+  // const { id } = useParams();
+  const { postDetail } = usePost(id);
+
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
@@ -18,25 +25,25 @@ export default function PostCard({ task, id }) {
     return <div>Error: {error}</div>;
   }
   const handleClick = (e) => {
-    console.log('id', id); // working
-
-    history.push(`/posts/edit/${id}`);
+    console.log('id in handle click', id);
+    history.push(`/posts/edit/${postDetail.id}`);
+    console.log('history', history);
 
     if (e.target.name === 'delete') {
       //
     } else {
       //
-      setFinished((prevFinished) => {
-        //
-        return !prevFinished;
-      });
+      // setFinished((prevFinished) => {
+      //
+      // return !prevFinished;
+      // });
     }
   };
 
   return (
     <div className="post overlay" key={id}>
-      <Link onClick={handleClick} className="buttons" to={`/posts/edit/${id}`}>
-        <img src="/edit.png" className="edit-button" alt="edit" />
+      <Link className="buttons" to={`/todos/edit/${id}`}>
+        <img src="/edit.png" className="edit-button" alt="edit" />{' '}
       </Link>
       <div>
         <img
