@@ -10,17 +10,7 @@ import EditPost from './components/EditPost/EditPost.js';
 
 function App() {
   return (
-    <div
-      className="App"
-      // style={{
-      //   backgroundImage: `url(${background})`,
-      //   backgroundSize: 'contain',
-      //   backgroundPosition: 'center',
-      //   backgroundRepeat: 'no-repeat',
-      //   height: '100vh',
-      //   width: '100%',
-      // }}
-    >
+    <div className="App">
       <Header />
       <Switch>
         <Route exact path="/auth/:type" component={Auth} />
