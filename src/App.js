@@ -23,7 +23,7 @@ function App() {
     >
       <Header />
       <Switch>
-        <Route path="/auth/:type" component={Auth} />
+        <Route exact path="/auth/:type" component={Auth} />
         <Route path="/todos/edit/:id" component={EditPost} />
         <Route path="/todos/new" component={NewPost} />
         <Route path="/todos" component={Posts} />
