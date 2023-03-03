@@ -2,13 +2,12 @@ import { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { usePosts } from '../../hooks/usePosts.js';
 import { useUser } from '../../hooks/useUser.js';
-import { toggleComplete } from '../../services/fetch-utils.js';
+import { deleteById, toggleComplete } from '../../services/fetch-utils.js';
 import './PostCard.css';
 
 export default function PostCard({ task, id, completed }) {
   const { user } = useUser();
-  const { error } = usePosts();
-
+  const { error, setPosts, posts, setLoading, setError } = usePosts();
   const [isCompleted, setIsCompleted] = useState(completed);
 
   if (!user) {
@@ -18,6 +17,17 @@ export default function PostCard({ task, id, completed }) {
   if (error) {
     return <div>Error: {error}</div>;
   }
+
+  const handleDelete = async () => {
+    try {
+      await deleteById(id);
+      setPosts(posts.filter((post) => post.id !== id));
+      setLoading(true);
+      // setIsCompleted(!isCompleted);
+    } catch (e) {
+      setError(e.message);
+    }
+  };
 
   // make the post card clickable and toggle the completed status
   const handleEdit = async () => {
@@ -30,15 +40,15 @@ export default function PostCard({ task, id, completed }) {
       <Link className="buttons" to={`/todos/edit/${id}`}>
         <img src="/edit.png" className="edit-button" alt="edit" />{' '}
       </Link>
-      <div>
+      <Link className="buttons" to={`/todos/${id}`} onClick={handleDelete}>
         <img
-          className="edit-button buttons"
+          className="edit-button buttons-2"
           onClick={() => {}}
           src="/delete.png"
           name="delete"
           alt="delete"
         />
-      </div>
+      </Link>
       <h1 onClick={() => handleEdit()} className={isCompleted ? 'completed-todo' : 'todo'} id={id}>
         {isCompleted ? (
           <>
