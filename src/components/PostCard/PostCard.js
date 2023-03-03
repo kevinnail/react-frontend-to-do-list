@@ -31,7 +31,13 @@ export default function PostCard({ task, id, completed }) {
         <img src="/edit.png" className="edit-button" alt="edit" />{' '}
       </Link>
       <div>
-        <img className="buttons" onClick={() => {}} src="/delete.png" name="delete" alt="delete" />
+        <img
+          className="edit-button buttons"
+          onClick={() => {}}
+          src="/delete.png"
+          name="delete"
+          alt="delete"
+        />
       </div>
       <h1 onClick={() => handleEdit()} className={isCompleted ? 'completed-todo' : 'todo'} id={id}>
         {isCompleted ? (

@@ -139,17 +139,17 @@ export async function deleteById(todo_id) {
 }
 
 export async function updatePost(id, task) {
-  const resp = await fetch(`${BASE_URL}/api/v1/todos/${id}`, {
+  const resp = await fetch(`${BASE_URL}/api/v1/todos/edit/${id}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ task }),
+    body: JSON.stringify({ id, task }),
     credentials: 'include',
   });
-
   const msg = await resp.json();
+
   return msg;
 }
 
