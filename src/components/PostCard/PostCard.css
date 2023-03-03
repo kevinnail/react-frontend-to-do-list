@@ -18,8 +18,10 @@
 
 .buttons:hover {
   cursor: pointer;
-  transform: scale(1.1) translateY(-5px);
+  transform: translateY(-2px);
   transition: 250ms;
+  box-shadow: 0 0 15px 0 black;
+  border-radius: 50%;
 }
 .todo:hover {
   box-shadow: 0 0 15px 0 rgb(0, 21, 255);
@@ -94,3 +96,17 @@ h1,
 .task-span {
   margin: 0 0 0 37px;
 }
+
+/* .edit-button {
+  padding: 15px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgb(0, 21, 255);
+  color: rgb(0, 21, 255);
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: 250ms;
+  margin: 0 0 0 0px;
+} */
