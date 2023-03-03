@@ -5,6 +5,7 @@ export function usePost(id) {
   const [postDetail, setPostDetail] = useState({});
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -21,5 +22,14 @@ export function usePost(id) {
     fetchData();
   }, [id]);
 
-  return { postDetail, setPostDetail, loading, setLoading, error, setError };
+  return {
+    postDetail,
+    setPostDetail,
+    loading,
+    setLoading,
+    error,
+    setError,
+    isDeleted,
+    setIsDeleted,
+  };
 }

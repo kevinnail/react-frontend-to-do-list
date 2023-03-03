@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { usePosts } from '../../hooks/usePosts.js';
 import { useUser } from '../../hooks/useUser.js';
@@ -8,7 +9,6 @@ import './Posts.css';
 export default function Posts() {
   const { user } = useUser();
   const { posts, loading, setPosts } = usePosts();
-
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
@@ -20,10 +20,11 @@ export default function Posts() {
       </div>
     );
   }
+
   return (
     <div className="list-container">
       {posts.map((post) => (
-        <PostCard key={post.id} {...post} task={post.task} setPosts={setPosts} />
+        <PostCard key={post.id} {...post} task={post.task} setPosts={setPosts} posts={posts} />
       ))}
     </div>
   );

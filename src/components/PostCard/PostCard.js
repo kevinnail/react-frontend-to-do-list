@@ -1,29 +1,33 @@
 import { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { usePosts } from '../../hooks/usePosts.js';
+import { usePost } from '../../hooks/usePost.js';
+// import { usePosts } from '../../hooks/usePosts.js';
 import { useUser } from '../../hooks/useUser.js';
 import { deleteById, toggleComplete } from '../../services/fetch-utils.js';
 import './PostCard.css';
 
-export default function PostCard({ task, id, completed }) {
+export default function PostCard({ task, id, completed, setPosts, posts }) {
   const { user } = useUser();
-  const { error, setPosts, posts, setLoading, setError } = usePosts();
+  // const { error, setPosts, setLoading, setError } = usePosts();
+  // const { error, setPosts, posts } = usePosts();
+  // const { error } = usePosts();
+  const { setLoading, setError } = usePost(id);
   const [isCompleted, setIsCompleted] = useState(completed);
 
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // if (error) {
+  //   return <div>Error: {error}</div>;
+  // }
 
   const handleDelete = async () => {
     try {
       await deleteById(id);
-      setPosts(posts.filter((post) => post.id !== id));
+      const updatedPosts = posts.filter((post) => post.id !== id);
+      setPosts(updatedPosts);
       setLoading(true);
-      // setIsCompleted(!isCompleted);
     } catch (e) {
       setError(e.message);
     }
