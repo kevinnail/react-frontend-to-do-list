@@ -1,12 +1,12 @@
 import { Link, Redirect } from 'react-router-dom';
 import { usePosts } from '../../hooks/usePosts.js';
 import { useUser } from '../../hooks/useUser.js';
+import { fetchTodos, toggleComplete } from '../../services/fetch-utils.js';
 import './PostCard.css';
 
-export default function PostCard({ task, id }) {
+export default function PostCard({ task, id, completed }) {
   const { user } = useUser();
-  const { error } = usePosts();
-  // const [finished, setFinished] = useState(false);
+  const { error, setPosts } = usePosts();
 
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
@@ -27,6 +27,12 @@ export default function PostCard({ task, id }) {
     }
   };
 
+  const handleTest = async () => {
+    await toggleComplete(!completed, id);
+    const updatedPosts = await fetchTodos(); // replace this with the appropriate function to fetch the updated list of posts
+    setPosts(updatedPosts);
+  };
+
   return (
     <div className="post overlay" key={id}>
       <Link className="buttons" to={`/todos/edit/${id}`}>
@@ -41,7 +47,7 @@ export default function PostCard({ task, id }) {
           alt="delete"
         />
       </div>
-      <h1 className="todo" onClick={handleClick} name="finished">
+      <h1 onClick={handleTest} className="todo" name="finished" id={id}>
         {task}
       </h1>
     </div>
