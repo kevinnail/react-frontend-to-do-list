@@ -38,7 +38,8 @@ export default function PostCard({ task, id, completed }) {
           <>
             {' '}
             <img src="./finished.png" />
-            <span>{task}</span>{' '}
+            <span>{task}</span>
+            <span className="now-completed">NOW COMPLETED</span>
           </>
         ) : (
           task
