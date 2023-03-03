@@ -7,7 +7,7 @@ import './PostCard.css';
 
 export default function PostCard({ task, id, completed }) {
   const { user } = useUser();
-  const { error, posts, setPosts } = usePosts();
+  const { error } = usePosts();
 
   const [isCompleted, setIsCompleted] = useState(completed);
 
@@ -19,18 +19,10 @@ export default function PostCard({ task, id, completed }) {
     return <div>Error: {error}</div>;
   }
 
+  // make the post card clickable and toggle the completed status
   const handleEdit = async () => {
-    const updatedPost = await toggleComplete(!isCompleted, id);
+    await toggleComplete(!isCompleted, id);
     setIsCompleted(!isCompleted);
-
-    const updatedPosts = posts.map((post) => {
-      if (post.id === updatedPost.id) {
-        return updatedPost;
-      } else {
-        return post;
-      }
-    });
-    setPosts(updatedPosts);
   };
 
   return (
@@ -39,18 +31,18 @@ export default function PostCard({ task, id, completed }) {
         <img src="/edit.png" className="edit-button" alt="edit" />{' '}
       </Link>
       <div>
-        <img
-          className="buttons"
-          onClick={() => {
-            // handleDelete
-          }}
-          src="/delete.png"
-          name="delete"
-          alt="delete"
-        />
+        <img className="buttons" onClick={() => {}} src="/delete.png" name="delete" alt="delete" />
       </div>
-      <h1 onClick={() => handleEdit()} className="todo" id={id}>
-        {isCompleted ? 'FINISHED!   ' + task : task}
+      <h1 onClick={() => handleEdit()} className={isCompleted ? 'completed-todo' : 'todo'} id={id}>
+        {isCompleted ? (
+          <>
+            {' '}
+            <img src="./finished.png" />
+            <span>{task}</span>{' '}
+          </>
+        ) : (
+          task
+        )}
       </h1>
     </div>
   );
