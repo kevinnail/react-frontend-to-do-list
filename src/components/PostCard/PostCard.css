@@ -23,6 +23,13 @@
   box-shadow: 0 0 15px 0 black;
   border-radius: 50%;
 }
+.buttons-2:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  transition: 250ms;
+  /* box-shadow: 0 0 15px 0 black; */
+  /* border-radius: 50%; */
+}
 .todo:hover {
   box-shadow: 0 0 15px 0 rgb(0, 21, 255);
   cursor: pointer;
