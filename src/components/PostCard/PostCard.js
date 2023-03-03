@@ -36,13 +36,16 @@ export default function PostCard({ task, id, completed }) {
       <h1 onClick={() => handleEdit()} className={isCompleted ? 'completed-todo' : 'todo'} id={id}>
         {isCompleted ? (
           <>
-            {' '}
-            <img src="./finished.png" />
+            <img className="unchecked-box" src="./unchecked.png" />
+            <img className="checked" src="./finished.png" />
             <span>{task}</span>
             <span className="now-completed">NOW COMPLETED</span>
           </>
         ) : (
-          task
+          <>
+            <img className="unchecked" src="./unchecked.png" />
+            <span className="task-span">{task}</span>
+          </>
         )}
       </h1>
     </div>

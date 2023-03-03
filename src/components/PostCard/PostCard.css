@@ -3,12 +3,12 @@
   grid-template-columns: 10% 10% 1fr;
   justify-content: center;
   align-items: center;
-  margin: 10px auto;
+  margin: 0px auto;
   border: 2px solid #ffffff;
   width: 60%;
   align-self: center;
   border-radius: 10px;
-  padding: 20px;
+  padding: 5px 20px;
   box-shadow: 0 0 10px 0 #000000;
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -28,27 +28,69 @@
 
 .todo,
 .completed-todo {
+  width: 90%;
   font-weight: 600;
   display: flex;
   color: rgb(0, 21, 255);
   justify-items: flex-start;
   align-items: flex-start;
   background-color: rgb(213, 213, 213);
-  padding: 10px 40px;
+  padding: 10px 0px 10px 40px;
   border-radius: 5px;
   margin: 0;
   font-size: 1.5rem;
   border: 1px solid rgb(0, 0, 0);
 }
+
 .completed-todo {
-  /* width: 50%; */
+  /* width: 90%; */
   background-color: rgb(0, 255, 26);
   display: grid;
-  grid-template-columns: 10% 1fr 30%;
+  grid-template-columns: 15% 1fr 35%;
+  padding: 10px 0px 10px 40px;
 }
-
-.now-completed {
-  background-color: rgb(0, 255, 26);
-  color: rgb(0, 0, 0);
-  border: 1px solid gb(0, 0, 0);
+.completed-todo:hover {
+  cursor: pointer;
+}
+h1,
+.checked {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0;
+  box-shadow: 0 0 15px 0 blue;
+  transition: 500ms;
+}
+.unchecked {
+  padding: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.unchecked:hover {
+  width: 30px;
+  height: 30px;
+  /* border-radius: 50%; */
+  margin: 0;
+  box-shadow: 0 0 15px 0 blue;
+  padding: 10px;
+  transition: 500ms;
+  /* transform: rotateX(360deg); */
+}
+.unchecked:active {
+  transition: 250ms;
+  transform: scale(0.95);
+}
+.unchecked-box {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: 20px 0px 20px 50px;
+  opacity: 0.1;
+}
+.hidden {
+  visibility: hidden;
+}
+.task-span {
+  margin: 0 0 0 37px;
 }
