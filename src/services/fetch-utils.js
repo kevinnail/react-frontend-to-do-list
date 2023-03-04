@@ -1,4 +1,4 @@
-const BASE_URL = 'https://to-do-list-kn.herokuapp.com';
+const BASE_URL = 'https://react-fs-ex-to-do-list.herokuapp.com';
 
 /* Auth related functions */
 
