@@ -1,4 +1,5 @@
 const BASE_URL = 'https://react-fs-ex-to-do-list.herokuapp.com';
+// const BASE_URL = 'http://localhost:7890';
 
 /* Auth related functions */
 
@@ -29,8 +30,11 @@ export async function signUpUser(email, password) {
     credentials: 'include',
   });
   const data = await resp.json();
+  // console.log('data', data);
+
   if (resp.ok) {
-    location.replace('/');
+    // location.replace('/auth');
+    await signInUser(email, password);
     return resp;
   } else {
     // eslint-disable-next-line no-console
