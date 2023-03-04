@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { usePosts } from '../../hooks/usePosts.js';
 import { useUser } from '../../hooks/useUser.js';
