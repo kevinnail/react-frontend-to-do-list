@@ -41,17 +41,11 @@ export default function PostCard({ task, id, completed, setPosts, posts }) {
 
   return (
     <div className="post overlay" key={id}>
-      <Link className="buttons" to={`/todos/edit/${id}`}>
+      <Link className="buttons btn-align" to={`/todos/edit/${id}`}>
         <img src="/edit.png" className="edit-button" alt="edit" />{' '}
       </Link>
-      <Link className="buttons" to={`/todos/${id}`} onClick={handleDelete}>
-        <img
-          className="edit-button buttons-2"
-          onClick={() => {}}
-          src="/delete.png"
-          name="delete"
-          alt="delete"
-        />
+      <Link className="buttons red-border" to={`/todos/${id}`} onClick={handleDelete}>
+        <img className=" " onClick={() => {}} src="/delete.png" name="delete" alt="delete" />
       </Link>
       <h1 onClick={() => handleEdit()} className={isCompleted ? 'completed-todo' : 'todo'} id={id}>
         {isCompleted ? (
