@@ -56,8 +56,7 @@ export async function signInUser(email, password) {
   const data = await resp.json();
 
   if (resp.ok) {
-    location.replace('/todos');
-    // history.push('/posts', { from: 'auth' });
+    location.replace('/todos ');
 
     return resp;
   } else {

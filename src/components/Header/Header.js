@@ -24,7 +24,7 @@ export default function Header() {
       {user && (
         <div className="header-section">
           <p>
-            Logged in async: <span> {user.email}</span> <br />
+            Logged in as: <span> {user.email}</span> <br />
           </p>
           <Link className="link" to="/todos/new">
             New Post
