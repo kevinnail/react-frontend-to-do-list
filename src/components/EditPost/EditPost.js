@@ -14,7 +14,12 @@ export default function EditPost() {
     return <Redirect to="/auth/sign-in" />;
   }
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading)
+    return (
+      <div className="loading">
+        <h1>Loading! One moment please!</h1>
+      </div>
+    );
   if (error) return <h1>{error}</h1>;
 
   const handleSubmit = async (task) => {
