@@ -9,5 +9,6 @@ export function useUser() {
     const user = await authUser(email, password, type);
     setUser(user);
   };
+
   return { user, setUser, error, setError, logInUser, loading };
 }
