@@ -23,31 +23,6 @@ export default function Auth() {
     }
   };
 
-  // try {
-  // let response;
-  // console.log('isSignIn in Auth.js', isSignIn);
-
-  // if (isSignIn) {
-  //   response = await signInUser(email, password);
-  // } else {
-  //   response = await signUpUser(email, password);
-  // }
-
-  // if (response.ok) {
-  //   const user = await getUser();
-
-  // console.log('response.ok: user in getUser in Auth.js', user);
-  // logInUser(user);
-  // console.log('response.ok: user in getUser in Auth.js', user);
-
-  // history.push('/posts', { from: 'auth' });
-  //   }
-  // } catch (e) {
-  //   console.error(e);
-  // }
-  // };
-  // console.log('page reloads on Auth.js');
-
   return (
     <div className="auth-container">
       <div className="sign-in-sign-out">

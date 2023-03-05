@@ -1,6 +1,18 @@
 .task-input {
   width: 450px;
-  height: 75px;
+  height: 40px;
+  font: size 1rem;
+  border-radius: 5px;
+  border: 1px solid #0057e3;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+  background-color: #f5f7fa;
+  margin-top: 1rem;
+  min-width: 200px;
+  max-height: 75px;
+  max-width: 350px;
 }
 .new-post-form {
   display: grid;
@@ -11,7 +23,7 @@
   margin: 100px auto;
   padding: 30px;
   border-radius: 5px;
-  height: 400px;
+  height: 200px;
   background-image: linear-gradient(to bottom right, #4e678f, #f5f7fa, #4e678f);
   box-shadow: 5px 5px 10px #4e678f;
 }
