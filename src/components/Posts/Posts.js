@@ -8,6 +8,7 @@ import './Posts.css';
 export default function Posts() {
   const { user } = useUser();
   const { posts, loading, setPosts } = usePosts();
+
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
@@ -15,7 +16,7 @@ export default function Posts() {
   if (loading) {
     return (
       <div className="loading">
-        <h1>I am seriously loaded! I mean loading! One moment please!</h1>
+        <h1>Loading! One moment please!</h1>
       </div>
     );
   }

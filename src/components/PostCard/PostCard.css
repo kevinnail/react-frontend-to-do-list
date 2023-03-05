@@ -11,6 +11,7 @@
   padding: 5px 20px;
   box-shadow: 0 0 10px 0 #000000;
   background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
 }
 .overlay {
   backdrop-filter: blur(5px);
@@ -20,7 +21,7 @@
   cursor: pointer;
   transform: translateY(-2px);
   transition: 250ms;
-  box-shadow: 0 0 5px 0 black;
+  box-shadow: 2 2 3px 0 black;
   border-radius: 1rem;
 }
 .buttons-2 {
@@ -30,24 +31,27 @@
   cursor: pointer;
   transform: translateY(4px);
   transition: 250ms;
-  /* border: 2px solid red;
-  box-sizing: border-box; */
-  /* box-shadow: 0 0 15px 0 black; */
-  /* border-radius: 50%; */
+  box-shadow: 2 2 3px 0 black;
 }
+
+.todo {
+  word-break: word-break;
+}
+
 .todo:hover {
   box-shadow: 0 0 15px 0 rgb(0, 21, 255);
   cursor: pointer;
+  transition: 250ms;
 }
 
 .todo,
 .completed-todo {
   width: 90%;
   font-weight: 600;
-  display: flex;
+  display: grid;
+  grid-template-columns: 15% 1fr;
+  padding: 10px 0px 10px 40px;
   color: rgb(0, 21, 255);
-  justify-items: flex-start;
-  align-items: flex-start;
   background-color: rgb(213, 213, 213);
   padding: 10px 0px 10px 40px;
   border-radius: 5px;
@@ -57,11 +61,11 @@
 }
 
 .completed-todo {
-  /* width: 90%; */
   background-color: rgb(0, 255, 26);
   background-image: linear-gradient(rgb(0, 255, 26), rgb(0, 255, 26), rgb(164, 255, 174));
+  text-decoration: line-through;
   display: grid;
-  grid-template-columns: 15% 1fr 35%;
+  grid-template-columns: 15% 1fr;
   padding: 10px 0px 10px 40px;
 }
 
@@ -75,11 +79,9 @@ h1,
   height: 50px;
   border-radius: 50%;
   margin: 0;
-  box-shadow: 0 0 15px 0 blue;
   transition: 500ms;
 }
 .unchecked {
-  /* padding: 10px; */
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -89,17 +91,7 @@ h1,
 .unchecked:hover {
   width: 30px;
   height: 30px;
-  /* border-radius: 50%; */
-  /* margin: 0;
-  */
-  /* background-color: rgb(0, 255, 26); */
-  /* border: 1px solid rgb(0, 255, 26); */
-  /* box-shadow: 0 0 15px 0 blue; */
-  /* padding: 1px; */
   margin: 18px 0px 0px 5px;
-  /* opacity: 0.1; */
-  /* transform: rotateX(720deg);
-  transition: 1000ms; */
 }
 .unchecked:active {
   transition: 250ms;
@@ -115,48 +107,27 @@ h1,
 .hidden {
   visibility: hidden;
 }
-.task-span {
-  margin: 0 0 0 37px;
-}
 
-/* .edit-button {
-  padding: 15px;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  background-color: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgb(0, 21, 255);
-  color: rgb(0, 21, 255);
-  font-size: 1.5rem;
-  font-weight: 600;
-  transition: 250ms;
-  margin: 0 0 0 0px;
-} */
-/* .edit-btn-adj {
-  position: relative;
-  top: 4px;
-} */
 .btn-align {
   border-radius: 1rem;
 }
 .btn-align:hover {
-  /* justify-self: center;
-  align-self: center; */
   background-image: linear-gradient(white, rgb(168, 168, 168), rgb(103, 103, 103));
 }
-
+.btn-align:active {
+  box-shadow: inset 0 0 10px 0 black;
+  background-image: linear-gradient(rgb(103, 103, 103), rgb(168, 168, 168), white);
+}
 .red-border {
   box-sizing: border-box;
   border-radius: 1rem;
 }
 .red-border:hover {
-  /* background-image: linear-gradient(red, rgb(255, 107, 107), rgb(255, 162, 162)); */
-  background-image: linear-gradient(rgb(255, 174, 174), rgb(255, 94, 94), red);
+  background-image: linear-gradient(rgba(255, 174, 174), rgba(255, 94, 94), rgba(255, 0, 0));
 }
 .red-border:active {
-  /* position: absolute; */
-  /* top: 2px; */
   background-image: linear-gradient(red, rgb(255, 107, 107), rgb(255, 162, 162));
   box-shadow: inset;
   transition: 400ms;
+  box-shadow: inset 0 0 5px 0 black;
 }

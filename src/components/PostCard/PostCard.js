@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { usePost } from '../../hooks/usePost.js';
-// import { usePosts } from '../../hooks/usePosts.js';
 import { useUser } from '../../hooks/useUser.js';
 import { deleteById, toggleComplete } from '../../services/fetch-utils.js';
 import './PostCard.css';
 
 export default function PostCard({ task, id, completed, setPosts, posts }) {
   const { user } = useUser();
-  // const { error, setPosts, setLoading, setError } = usePosts();
-  // const { error, setPosts, posts } = usePosts();
-  // const { error } = usePosts();
   const { setLoading, setError } = usePost(id);
   const [isCompleted, setIsCompleted] = useState(completed);
 
@@ -18,10 +14,7 @@ export default function PostCard({ task, id, completed, setPosts, posts }) {
     return <Redirect to="/auth/sign-in" />;
   }
 
-  // if (error) {
-  //   return <div>Error: {error}</div>;
-  // }
-
+  // delete the post
   const handleDelete = async () => {
     try {
       await deleteById(id);
@@ -52,8 +45,7 @@ export default function PostCard({ task, id, completed, setPosts, posts }) {
           <>
             <img className="unchecked-box" src="./unchecked.png" />
             <img className="checked" src="./finished.png" />
-            <span>{task}</span>
-            <span className="now-completed">NOW COMPLETED</span>
+            <span className="task-span">{task}</span>
           </>
         ) : (
           <>
