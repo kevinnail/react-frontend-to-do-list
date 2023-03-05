@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 
 .title {
-  margin-left: 50px;
+  margin-left: 25%;
 }
 
 header {
@@ -18,13 +18,11 @@ header {
 }
 
 button {
-  /* grid-column-start: 3; */
   padding: 8px;
 }
 
 a {
   text-decoration: none;
-  /* grid-column-start: 2; */
   padding: 8px;
 }
 
@@ -52,25 +50,22 @@ button:hover,
   color: #fff;
   border: 1px solid rgb(68, 0, 255);
   box-shadow: 0 0 15px 5px rgb(68, 0, 255);
-  border-radius: 50%;
 }
 
 span {
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: bold;
-  margin: 0 10px;
+  margin: auto;
 }
 
 .header-section {
   display: grid;
   grid-template-columns: 60% 20% 20%;
-  /* gap: 20px; */
   align-items: center;
   min-width: 500px;
 }
 
 p {
-  /* background-color: #fff; */
   color: #fff;
   font-size: 20px;
   width: 400px;
@@ -87,5 +82,4 @@ h1 {
 .icon {
   width: 50px;
   justify-self: flex-end;
-  /* margin: 5px 250px; */
 }
