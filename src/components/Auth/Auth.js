@@ -14,20 +14,7 @@ export default function Auth() {
   if (user) {
     return <Redirect to="/todos" />;
   } else if (error) {
-    alert(
-      'email: ' +
-        email +
-        ', password: ' +
-        password +
-        ', isSignIn: ' +
-        isSignIn +
-        ', user: ' +
-        user +
-        ', type: ' +
-        type +
-        ', error: ' +
-        error
-    );
+    alert(', user: ' + user + ', type: ' + type + ', error: ' + error);
   }
 
   const submitAuth = async () => {
