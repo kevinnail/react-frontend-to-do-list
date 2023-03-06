@@ -15,7 +15,7 @@ export default function Auth() {
     return <Redirect to="/todos" />;
   } else if (error) {
     alert(error);
-
+  }
   const submitAuth = async () => {
     try {
       await logInUser(email, password, type);
