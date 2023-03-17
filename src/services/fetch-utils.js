@@ -51,6 +51,7 @@ export async function signInUser(email, password) {
     },
     body: JSON.stringify({ email, password }),
     credentials: 'include',
+    mode: 'cors',
   });
 
   const data = await resp.json();
