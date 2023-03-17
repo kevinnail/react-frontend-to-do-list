@@ -8,11 +8,13 @@ export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSignIn, setIsSignIn] = useState(true);
-  const { user, logInUser } = useUser();
+  const { user, logInUser, error } = useUser();
   const { type } = useParams();
 
   if (user) {
     return <Redirect to="/todos" />;
+  } else if (error) {
+    console.error(', user: ' + user + ', type: ' + type + ', error: ' + error);
   }
 
   const submitAuth = async () => {
