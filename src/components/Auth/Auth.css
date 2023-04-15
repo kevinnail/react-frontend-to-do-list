@@ -44,3 +44,17 @@ input {
   border: 1px solid rgb(68, 0, 255);
   box-shadow: 0 0 15px 5px rgb(68, 0, 255);
 }
+.button-auth {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(86, 86, 253, 0.54);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Shadows Into Light', cursive;
+  letter-spacing: 2px;
+  width: 150px;
+}

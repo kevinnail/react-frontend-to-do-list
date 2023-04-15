@@ -54,7 +54,9 @@ export default function Auth() {
         />
       </div>
       <div>
-        <button onClick={submitAuth}>{isSignIn ? 'Sign In' : 'Sign Up'}</button>
+        <button className="button-auth" onClick={submitAuth}>
+          {isSignIn ? 'Sign In' : 'Sign Up'}
+        </button>
       </div>
     </div>
   );
