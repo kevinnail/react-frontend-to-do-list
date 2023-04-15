@@ -52,8 +52,6 @@ export default function Auth() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </div>
-      <div>
         <button className="button-auth" onClick={submitAuth}>
           {isSignIn ? 'Sign In' : 'Sign Up'}
         </button>
