@@ -1,10 +1,10 @@
-const BASE_URL = 'https://react-fs-ex-to-do-list.herokuapp.com';
+// const BASE_URL = 'https://react-fs-ex-to-do-list.herokuapp.com';
 // const BASE_URL = 'http://localhost:7890';
 
 /* Auth related functions */
 
 export async function getUser() {
-  const resp = await fetch(`${BASE_URL}/api/v1/users/me`, {
+  const resp = await fetch(`/api/v1/users/me`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
@@ -20,7 +20,7 @@ export async function getUser() {
 }
 
 export async function signUpUser(email, password) {
-  const resp = await fetch(`${BASE_URL}/api/v1/users`, {
+  const resp = await fetch(`/api/v1/users`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -43,7 +43,7 @@ export async function signUpUser(email, password) {
 }
 
 export async function signInUser(email, password) {
-  const resp = await fetch(`${BASE_URL}/api/v1/users/sessions`, {
+  const resp = await fetch(`/api/v1/users/sessions`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -67,7 +67,7 @@ export async function signInUser(email, password) {
 }
 
 export async function signOutUser() {
-  const resp = await fetch(`${BASE_URL}/api/v1/users/sessions`, {
+  const resp = await fetch(`/api/v1/users/sessions`, {
     method: 'DELETE',
     credentials: 'include',
   });
@@ -80,7 +80,7 @@ export async function signOutUser() {
 /* Data functions */
 
 export async function fetchTodos() {
-  const resp = await fetch(`${BASE_URL}/api/v1/todos`, {
+  const resp = await fetch(`/api/v1/todos`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
@@ -99,7 +99,7 @@ export async function fetchTodos() {
 }
 
 export async function postToDo(task, user_Id) {
-  const resp = await fetch(`${BASE_URL}/api/v1/todos`, {
+  const resp = await fetch(`/api/v1/todos`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -113,7 +113,7 @@ export async function postToDo(task, user_Id) {
 }
 
 export async function toggleComplete(mark, todo_id) {
-  const resp = await fetch(`${BASE_URL}/api/v1/todos/${todo_id}`, {
+  const resp = await fetch(`/api/v1/todos/${todo_id}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
@@ -127,7 +127,7 @@ export async function toggleComplete(mark, todo_id) {
   return msg;
 }
 export async function deleteById(todo_id) {
-  const resp = await fetch(`${BASE_URL}/api/v1/todos/${todo_id}`, {
+  const resp = await fetch(`/api/v1/todos/${todo_id}`, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
@@ -142,7 +142,7 @@ export async function deleteById(todo_id) {
 }
 
 export async function updatePost(id, task) {
-  const resp = await fetch(`${BASE_URL}/api/v1/todos/edit/${id}`, {
+  const resp = await fetch(`/api/v1/todos/edit/${id}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
@@ -157,7 +157,7 @@ export async function updatePost(id, task) {
 }
 
 export async function getPostDetail(id) {
-  const resp = await fetch(`${BASE_URL}/api/v1/todos/${id}`, {
+  const resp = await fetch(`/api/v1/todos/${id}`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
